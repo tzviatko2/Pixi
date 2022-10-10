@@ -6,17 +6,15 @@ export class Button extends PIXI.Container {
     private background: PIXI.Sprite;
     private text: PIXI.Text;
     private label: string;
-    protected dispatcher: PIXI.utils.EventEmitter;
+    
     constructor(label: string) {
         super();
         this.label = label;
         this.init();
     }
-    public getDispatcher(): PIXI.utils.EventEmitter {
-        return this.dispatcher;
-    }
+    
     protected init() {
-        this.dispatcher = new PIXI.utils.EventEmitter();
+        
         this.createBackground();
         this.interactive = true;
         this.onPointerDown = this.onPointerDown.bind(this);
