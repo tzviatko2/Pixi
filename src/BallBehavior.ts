@@ -2,7 +2,7 @@ import * as PIXI from "pixi.js";
 import { GameObjectBehavior } from "./GameObjectBehavior";
 import { GameObject } from "./GameObject";
 import { GameApplication } from "./GameApplication";
-import { SquareBehavior } from "./SquareBehavior";
+
 
 export class BallBehavior extends GameObjectBehavior {
 
@@ -37,7 +37,7 @@ export class BallBehavior extends GameObjectBehavior {
 
         const texture: PIXI.Texture = GameApplication.getApp().renderer.generateTexture(gfx);
         this.ball = new PIXI.Sprite(texture);
-
+        
         this.gameObjRef.addChild(this.ball);
     }
  
@@ -48,7 +48,8 @@ export class BallBehavior extends GameObjectBehavior {
         }
 
         if(! GameObject.wasIt && this.gameObjRef.x + this.gameObjRef.width + this.velocity * delta < GameApplication.getApp().view.width) {
-            this.gameObjRef.x += this.velocity * delta;            
+            this.gameObjRef.x += this.velocity * delta;        
+                
         } 
         // else {
         //     this.gameObjRef.x = GameApplication.getApp().view.width - this.gameObjRef.width
